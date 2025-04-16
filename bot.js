@@ -95,9 +95,11 @@ client.on('messageCreate', (message) => {
 
     // Comando !ajuda
     if (conteudo === '!ajuda') {
-        enviarMensagem(message, `Aqui estão os comandos disponíveis:\n${Object.entries(COMANDOS)
+        const textoAjuda = Object.entries(COMANDOS)
             .map(([comando, descricao]) => `${comando} – ${descricao}`)
-            .join('\n')}`);
+            .join('\n');
+    
+        enviarMensagem(message, `📋 Aqui estão os comandos disponíveis:\n${textoAjuda}`);
         return;
     }
 
