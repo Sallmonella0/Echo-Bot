@@ -71,7 +71,7 @@ client.on('messageCreate', (message) => {
         if (qtd > 0 && max > 0) {
             const resultados = rolarDado(qtd, max);  // Rola os dados
 
-           
+            // Agora, enviamos os resultados um por um, em mensagens separadas
             resultados.forEach((resultado, index) => {
                 const emoji = gerarEmoji(resultado);  // Converte cada resultado em emoji
                 enviarMensagem(message, `Resultado ${index + 1}: ${emoji}`);  // Envia os emojis como resultado
