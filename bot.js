@@ -82,16 +82,7 @@ client.on('messageCreate', (message) => {
         return;
     }
 
-    // Se o comando não for reconhecido, sugere comandos
-    if (conteudo.startsWith('!')) {
-        const sugestoes = sugerirComandos(conteudo);
-        if (sugestoes.length > 0) {
-            enviarMensagem(message, 'Não encontrei comandos correspondentes. Tente algo como "!ajuda" ou "!ping".');
-        }
-        return;
-    }
 
-    // Comando !ajuda a a
     if (conteudo === '!ajuda') {
         const textoAjuda = Object.entries(COMANDOS)
             .map(([comando, descricao]) => `${comando} – ${descricao}`)
