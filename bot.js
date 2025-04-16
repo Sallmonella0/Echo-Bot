@@ -86,8 +86,6 @@ client.on('messageCreate', (message) => {
     if (conteudo.startsWith('!')) {
         const sugestoes = sugerirComandos(conteudo);
         if (sugestoes.length > 0) {
-            enviarMensagem(message, `📌 Sugestões de comando:\n${sugestoes.join('\n')}`);
-        } else {
             enviarMensagem(message, 'Não encontrei comandos correspondentes. Tente algo como "!ajuda" ou "!ping".');
         }
         return;
