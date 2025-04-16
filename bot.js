@@ -76,7 +76,7 @@ client.on('messageCreate', (message) => {
                 const emoji = gerarEmoji(resultado);  // Converte cada resultado em emoji
                 enviarMensagem(message, `Resultado ${index + 1}: ${emoji}`);  // Envia os emojis como resultado
             });
-        } else {
+        } else { 
             enviarMensagem(message, 'Por favor, forneça números válidos para a quantidade de rolagens e o número máximo de faces do dado.');
         }
         return;
