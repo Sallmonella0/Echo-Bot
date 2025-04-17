@@ -68,11 +68,11 @@ client.on('messageCreate', (message) => {
     const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
     // Se o comando segue o formato 'xDy'
-    const regex = /^(\d*)d(\d+)$/; // Regex para verificar comandos como !2D8
+    const regex = /^(\d*)d(\d+)$/i; // Regex agora aceita !D6 e !2D6
     const match = conteudo.match(regex);
     if (match) {
-        const qtd = parseInt(match[1]);  // Quantidade de dados (x)
-        const max = parseInt(match[2]);  // Faces do dado (y)
+        const qtd = match[1] ? parseInt(match[1]) : 1; // Se não houver número antes do D, assume 1
+        const max = parseInt(match[2]); // Número de faces do dado
 
         if (qtd > 0 && max > 0) {
             const resultados = rolarDado(qtd, max);  // Rola os dados
