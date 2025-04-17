@@ -62,7 +62,7 @@ client.on('messageCreate', (message) => {
     const conteudo = message.content.trim(); // Conteúdo da mensagem
 
     // Se o comando começa com '!' e segue o formato 'xDy'
-    const regex = /^!(\d+)D(\d+)$/; // Regex para verificar comandos como !2D8
+    const regex = /^!(\d+)d(\d+)$/; // Regex para verificar comandos como !2D8
     const match = conteudo.match(regex);
     if (match) {
         const qtd = parseInt(match[1]);  // Quantidade de dados (x)
