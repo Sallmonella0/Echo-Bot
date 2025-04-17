@@ -80,14 +80,13 @@ client.on('messageCreate', (message) => {
         const max = parseInt(match[2]); // Número de faces do dado
 
         if (qtd > 0 && max > 0) {
-            const resultados = rolarDado(qtd, max);  // Rola os dados
-
-            // Agora, enviamos os resultados um por um, em mensagens separadas
-            resultados.forEach((resultado, index) => {
-                const emoji = gerarEmoji(resultado);  // Converte cada resultado em emoji
-                enviarMensagem(message, `Resultado ${index + 1}: ${emoji}`);  // Envia os emojis como resultado
-            });
-        } else { 
+                const resultados = rolarDado(qtd, max);
+                const emojis = resultados.map(gerarEmoji);
+                const mensagemFinal = emojis.map((e, i) => `Resultado ${i + 1}: ${e}`).join('\n');
+            
+                enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+                return;
+            }else { 
             enviarMensagem(message, 'Por favor, forneça números válidos para a quantidade de rolagens e o número máximo de faces do dado.');
         }
         return;
