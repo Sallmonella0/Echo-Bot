@@ -63,7 +63,7 @@ client.on('messageCreate', (message) => {
 
     // Se o comando começa com '!' e segue o formato 'xDy'
     const regex = /^!(\d+)d(\d+)$/; // Regex para verificar comandos como !2D8
-    const match = conteudo.match(regex);
+    const match = conteudo.match(regex.toLowerCase());
     if (match) {
         const qtd = parseInt(match[1]);  // Quantidade de dados (x)
         const max = parseInt(match[2]);  // Faces do dado (y)
