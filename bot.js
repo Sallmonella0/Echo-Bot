@@ -65,11 +65,11 @@ function enviarMensagem(message, conteudo) {
 client.on('messageCreate', (message) => {
     if (message.author.bot) return; // Ignora mensagens de outros bots
 
-    const conteudo = message.content.trim(); // Conteúdo da mensagem
+    const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
-    // Se o comando segue o formato 'xdy'
-    const regex = /^(\d*)d(\d+)$/i; // Regex agora aceita d6 e 2d6
-    const match = conteudo.match(regex).toLowerCase();
+    // Se o comando segue o formato 'xDy'
+    const regex = /^(\d*)d(\d+)$/i; // Regex agora aceita D6 e !2D6
+    const match = conteudo.match(regex);
     if (match) {
         const qtd = match[1] ? parseInt(match[1]) : 1; // Se não houver número antes do D, assume 1
         const max = parseInt(match[2]); // Número de faces do dado
