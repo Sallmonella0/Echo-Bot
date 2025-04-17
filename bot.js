@@ -87,7 +87,7 @@ client.on('messageCreate', (message) => {
 
             let bloco = '';
             for (let i = 0; i < emojis.length; i++) {
-                const linha = `🎲 ${i + 1}: ${emojis[i]}\n`;
+                const linha = `${i + 1}: ${emojis[i]}\n`;
 
                 if ((bloco + linha).length > 1900) {
                     enviarMensagem(message, bloco);
