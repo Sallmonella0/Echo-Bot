@@ -65,7 +65,7 @@ function enviarMensagem(message, conteudo) {
 client.on('messageCreate', (message) => {
     if (message.author.bot) return; // Ignora mensagens de outros bots
 
-    const conteudo = message.content.trim().toLocaleLowerCase(); // Conteúdo da mensagem
+    const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
     // Se o comando começa com '!' e segue o formato 'xDy'
     const regex = /^!(\d*)d(\d+)$/; // Regex para verificar comandos como !2D8
