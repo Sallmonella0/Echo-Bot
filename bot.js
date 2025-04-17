@@ -67,7 +67,7 @@ client.on('messageCreate', (message) => {
 
     const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
-    // Se o comando segue o formato 'xDy'
+    // Se o comando segue o formato 'xdy'
     const regex = /^(\d*)d(\d+)$/i; // Regex agora aceita d6 e 2d6
     const match = conteudo.match(regex).toLowerCase();
     if (match) {
