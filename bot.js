@@ -110,7 +110,7 @@ client.on('messageCreate', (message) => {
         return;
     }
 
-    // Comando !rollhelp
+    // Comando !rollhelp a
     if (conteudo === '!rollhelp') {
         enviarMensagem(message, 'Use o comando xdy para rolar dados. Exemplo: 2d6 rola 2 dados de 6 faces. O primeiro número é a quantidade de dados, e o segundo é o número de faces do dado.');
         return;
