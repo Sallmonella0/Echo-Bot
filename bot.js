@@ -34,11 +34,16 @@ function sugerirComandos(input) {
 // Função para verificar e rolar os dados no formato !xDy
 function rolarDado(qtd, max) {
     const resultados = [];
+    if(qtd === 0 ){
+        const resultado = Math.floor(Math.random() * max) + 1; // Gera um número entre 1 e 'max'
+        resultados.push(resultado);
+        console.log(`Dado rolado: ${resultado}`);  // Log para depuração
+    }else{
     for (let i = 0; i < qtd; i++) {
         const resultado = Math.floor(Math.random() * max) + 1; // Gera um número entre 1 e 'max'
         resultados.push(resultado);
         console.log(`Dado rolado: ${resultado}`);  // Log para depuração
-    }
+    }}
     return resultados;  // Retorna um array com os resultados de cada dado rolado
 }
 
@@ -59,11 +64,11 @@ function enviarMensagem(message, conteudo) {
 client.on('messageCreate', (message) => {
     if (message.author.bot) return; // Ignora mensagens de outros bots
 
-    const conteudo = message.content.trim(); // Conteúdo da mensagem
+    const conteudo = message.content.trim().toLocaleLowerCase(); // Conteúdo da mensagem
 
     // Se o comando começa com '!' e segue o formato 'xDy'
     const regex = /^!(\d+)d(\d+)$/; // Regex para verificar comandos como !2D8
-    const match = conteudo.match(regex.toLowerCase());
+    const match = conteudo.match(regex);
     if (match) {
         const qtd = parseInt(match[1]);  // Quantidade de dados (x)
         const max = parseInt(match[2]);  // Faces do dado (y)
