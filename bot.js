@@ -72,19 +72,20 @@ client.on('messageCreate', (message) => {
 
     const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
-    // Se o comando segue o formato 'xDy'
-    const regex = /^(\d*)d(\d+)$/i; // Regex agora aceita !D6 e !2D6
+    // Se o comando segue o formato 'xdy'
+    const regex = /^(\d*)d(\d+)$/i; // Regex agora aceita d6 e  2d6
     const match = conteudo.match(regex);
-    if (match) {
+    if (match) {        
         const qtd = match[1] ? parseInt(match[1]) : 1; // Se não houver número antes do D, assume 1
         const max = parseInt(match[2]); // Número de faces do dado
 
         if (qtd > 0 && max > 0) {
                 const resultados = rolarDado(qtd, max);
                 const emojis = resultados.map(gerarEmoji);
-                const mensagemFinal = emojis.map((e, i) => `Resultado ${i + 1}: ${e}`).join('\n');
-            
-                enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+                const mensagemFinal = emojis.map((emoji, i) => `🎲 ${i + 1}: ${emoji}`).join('\n');
+
+                enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+
                 return;
             }else { 
             enviarMensagem(message, 'Por favor, forneça números válidos para a quantidade de rolagens e o número máximo de faces do dado.');
