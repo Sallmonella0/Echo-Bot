@@ -34,18 +34,19 @@ function sugerirComandos(input) {
 // Função para verificar e rolar os dados no formato !xDy
 function rolarDado(qtd, max) {
     const resultados = [];
-    if(qtd === 0 ){
-        const resultado = Math.floor(Math.random() * max) + 1; // Gera um número entre 1 e 'max'
+
+    // Garante que a quantidade seja no mínimo 1
+    const quantidade = qtd > 0 ? qtd : 1;
+
+    for (let i = 0; i < quantidade; i++) {
+        const resultado = Math.floor(Math.random() * max) + 1; // Gera número entre 1 e 'max'
         resultados.push(resultado);
-        console.log(`Dado rolado: ${resultado}`);  // Log para depuração
-    }else{
-    for (let i = 0; i < qtd; i++) {
-        const resultado = Math.floor(Math.random() * max) + 1; // Gera um número entre 1 e 'max'
-        resultados.push(resultado);
-        console.log(`Dado rolado: ${resultado}`);  // Log para depuração
-    }}
-    return resultados;  // Retorna um array com os resultados de cada dado rolado
+        console.log(`Dado rolado: ${resultado}`);
+    }
+
+    return resultados; // Retorna um array com os resultados
 }
+
 
 // Função para gerar o emoji correspondente ao valor do dado
 function gerarEmoji(numero) {
