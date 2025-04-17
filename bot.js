@@ -82,9 +82,9 @@ client.on('messageCreate', (message) => {
         if (qtd > 0 && max > 0) {
                 const resultados = rolarDado(qtd, max);
                 const emojis = resultados.map(gerarEmoji);
-                const mensagemFinal = emojis.map((emoji, i) => `🎲 ${i + 1}: ${emoji}`).join('\n');
+                const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
 
-                enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+                enviarMensagem(message, `Resultados:\n${mensagemFinal}`);
 
                 return;
             }else { 
