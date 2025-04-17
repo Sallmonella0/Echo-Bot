@@ -67,7 +67,7 @@ client.on('messageCreate', (message) => {
 
     const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
-    // Se o comando começa com '!' e segue o formato 'xDy'
+    // Se o comando segue o formato 'xDy'
     const regex = /^(\d*)d(\d+)$/; // Regex para verificar comandos como !2D8
     const match = conteudo.match(regex);
     if (match) {
