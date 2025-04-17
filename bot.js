@@ -65,6 +65,11 @@ function enviarMensagem(message, conteudo) {
 client.on('messageCreate', (message) => {
     if (message.author.bot) return; // Ignora mensagens de outros bots
 
+    if (message.mentions.has(client.user)) {
+        enviarMensagem(message, 'Oi! Você me mencionou? Precisa de ajuda? Digite `!ajuda` para ver o que eu posso fazer!');
+        return;
+    }
+
     const conteudo = message.content.trim().toLowerCase(); // Conteúdo da mensagem
 
     // Se o comando segue o formato 'xDy'
@@ -106,7 +111,7 @@ client.on('messageCreate', (message) => {
 
     // Comando !info
     if (conteudo === '!info') {
-        enviarMensagem(message, 'Este bot foi criado para rolar dados e fornecer informações sobre o jogo. Ele suporta comandos como !xDy para rolar dados e !ajuda para mostrar a lista de comandos.');
+        enviarMensagem(message, 'Este bot foi criado para rolar dados e fornecer informações sobre o jogo. Ele suporta comandos como !ajuda para mostrar a lista de comandos.');
         return;
     }
 
