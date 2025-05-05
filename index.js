@@ -1,6 +1,11 @@
 require('dotenv').config();
+const express = require('express');
 const { Client, GatewayIntentBits } = require('discord.js');
 
+const app = express();
+const PORT = 3000;
+
+// Inicializa o bot
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
@@ -9,6 +14,7 @@ const client = new Client({
     ]
 });
 
+// Comandos disponíveis
 const COMANDOS = {
     '!ajuda': 'Mostra a lista de comandos disponíveis',
     '!status': 'Mostra os status do personagem',
@@ -18,8 +24,11 @@ const COMANDOS = {
     '!ping': 'Responde com "Pong!" para verificar se o bot está online'
 };
 
-function enviarMensagem(message, conteudo) {
-    message.channel.send(conteudo);
+// Funções auxiliares
+function sugerirComandos(input) {
+    return Object.entries(COMANDOS)
+        .filter(([comando]) => comando.toLowerCase().startsWith(input.toLowerCase()))
+        .map(([comando, descricao]) => `${comando} – ${descricao}`);
 }
 
 function rolarDado(qtd, max) {
@@ -39,37 +48,41 @@ function gerarEmoji(numero) {
     return emojis[numero - 1] || '🎲';
 }
 
+function enviarMensagem(message, conteudo) {
+    message.channel.send(conteudo);
+}
+
+// Evento de mensagens
 client.on('messageCreate', (message) => {
     if (message.author.bot) return;
 
     if (message.mentions.has(client.user)) {
-        enviarMensagem(message, 'Oi! Você me mencionou? Digite `!ajuda` para ver o que eu posso fazer!');
+        enviarMensagem(message, 'Oi! Você me mencionou? Digite `!ajuda` para ajuda!');
         return;
     }
 
     const conteudo = message.content.trim().toLowerCase();
     const regex = /^(\d*)d(\d+)$/i;
     const match = conteudo.match(regex);
-    
     if (match) {
         const qtd = match[1] ? parseInt(match[1]) : 1;
         const max = parseInt(match[2]);
-
         if (qtd > 0 && max > 0) {
             const resultados = rolarDado(qtd, max);
             const emojis = resultados.map(gerarEmoji);
             const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
             enviarMensagem(message, `Resultados:\n${mensagemFinal}`);
         } else {
-            enviarMensagem(message, 'Use números válidos para rolagem de dados.');
+            enviarMensagem(message, 'Números inválidos para o dado.');
         }
         return;
     }
 
     if (conteudo === '!ajuda') {
         const textoAjuda = Object.entries(COMANDOS)
-            .map(([comando, desc]) => `${comando} – ${desc}`).join('\n');
-        enviarMensagem(message, `📋 Comandos disponíveis:\n${textoAjuda}`);
+            .map(([comando, descricao]) => `${comando} – ${descricao}`)
+            .join('\n');
+        enviarMensagem(message, `📋 Comandos:\n${textoAjuda}`);
         return;
     }
 
@@ -79,21 +92,49 @@ client.on('messageCreate', (message) => {
     }
 
     if (conteudo === '!info') {
-        enviarMensagem(message, 'Este bot foi criado para rolar dados e fornecer comandos úteis.');
+        enviarMensagem(message, 'Sou um bot para rolar dados e auxiliar em jogos!');
         return;
     }
 
     if (conteudo === '!rollhelp') {
-        enviarMensagem(message, 'Use o comando xDy para rolar dados. Exemplo: 2d6 rola 2 dados de 6 faces.');
+        enviarMensagem(message, 'Use `xdy`, exemplo: `2d6` para rolar dois dados de 6 faces.');
         return;
     }
 });
 
+// Quando o bot estiver pronto
 client.once('ready', () => {
-    console.log(`✅ Bot online em ${client.guilds.cache.size} servidores.`);
+    console.log(`🤖 Bot online como ${client.user.tag}`);
 });
 
+// Painel web
+app.get('/', async (req, res) => {
+    if (!client.isReady()) {
+        return res.send('⏳ O bot ainda está inicializando...');
+    }
+
+    const guilds = await Promise.all(
+        client.guilds.cache.map(async (guild) => {
+            const members = await guild.members.fetch();
+            return `
+                <li>
+                    <strong>${guild.name}</strong> (ID: ${guild.id})<br>
+                    👥 ${members.size} membros
+                </li>`;
+        })
+    );
+
+    res.send(`
+        <h1>🔧 Painel de Administração do Bot</h1>
+        <p>Servidores conectados: ${client.guilds.cache.size}</p>
+        <ul>${guilds.join('')}</ul>
+    `);
+});
+
+// Inicia servidor web
+app.listen(PORT, () => {
+    console.log(`🌐 Painel disponível em http://localhost:${PORT}`);
+});
+
+// Login do bot
 client.login(process.env.DISCORD_TOKEN);
-
-module.exports = client;
-
