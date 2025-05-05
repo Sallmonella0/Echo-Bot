@@ -124,3 +124,5 @@ client.on('messageCreate', (message) => {
 
 // Inicializando o bot com o token
 client.login(process.env.DISCORD_TOKEN);
+module.exports = client;
+
