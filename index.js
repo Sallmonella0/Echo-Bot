@@ -8,11 +8,13 @@ const PORT = 3000;
 // Inicializa o bot
 const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildMembers // <- ADICIONE ESTA LINHA
     ]
-});
+  });
+  
 
 // Comandos disponíveis
 const COMANDOS = {
