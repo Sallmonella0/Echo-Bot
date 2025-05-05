@@ -124,5 +124,16 @@ client.on('messageCreate', (message) => {
 
 // Inicializando o bot com o token
 client.login(process.env.DISCORD_TOKEN);
-module.exports = client;
+
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+    res.send(`O bot está online em ${client.guilds.cache.size} servidores.`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Painel disponível em http://localhost:${PORT}`);
+});
 

@@ -53,4 +53,3 @@ app.listen(PORT, () => {
   console.log(`Painel rodando em http://localhost:${PORT}`);
 });
 
-const client = require('./bot'); // ou './index' dependendo do nome do seu arquivo
