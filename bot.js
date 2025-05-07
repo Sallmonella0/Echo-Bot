@@ -102,7 +102,7 @@ client.on('messageCreate', (message) => {
     }
 
     if (conteudo === '!rollhelp') {
-        enviarMensagem(message, 'Use o comando no formato `xdy`. Exemplo: `2d6` rola dois dados de 6 faces. Role dados de até no máximo 12 faces.');
+        enviarMensagem(message, 'Exemplo: `2d6` rola dois dados de 6 faces. Role dados de até no máximo 12 faces.');
         return;
     }
 });
