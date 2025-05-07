@@ -78,7 +78,7 @@ client.on('messageCreate', (message) => {
             const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
             enviarMensagem(message, `${mensagemFinal}`);
         } else {
-            enviarMensagem(message, 'Por favor, use valores válidos para a rolagem.');
+            enviarMensagem(message, 'Utilize valores válidos para a rolagem.');
         }
         return;
     }
