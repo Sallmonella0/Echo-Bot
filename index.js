@@ -66,7 +66,8 @@ client.on('messageCreate', (message) => {
     }
 
     const conteudo = message.content.trim().toLowerCase();
-    const regex = /^(\d*)d(\d+)$/i;
+    const regex = /^(\d*d\d+)$/i;
+
     const match = conteudo.match(regex);
 
     if (match) {
@@ -77,7 +78,7 @@ client.on('messageCreate', (message) => {
             const resultados = rolarDado(qtd, max);
             const emojis = resultados.map(gerarEmoji);
             const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
-            enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+            enviarMensagem(message, `${mensagemFinal}`);
         } else {
             enviarMensagem(message, 'Por favor, use valores válidos para a rolagem.');
         }
