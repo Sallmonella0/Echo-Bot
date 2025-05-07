@@ -22,8 +22,6 @@ client.once('ready', () => {
 // Comandos disponíveis
 const COMANDOS = {
     '!ajuda': 'Mostra a lista de comandos disponíveis',
-    '!status': 'Mostra os status do personagem',
-    '!assimilacao': 'Ativa ou verifica uma assimilação',
     '!info': 'Mostra informações sobre o bot',
     '!rollhelp': 'Explica como usar o comando !xDy para rolar dados',
     '!ping': 'Responde com "Pong!" para verificar se o bot está online'
@@ -104,7 +102,7 @@ client.on('messageCreate', (message) => {
     }
 
     if (conteudo === '!rollhelp') {
-        enviarMensagem(message, 'Use o comando no formato `xdy`. Exemplo: `2d6` rola dois dados de 6 faces.');
+        enviarMensagem(message, 'Use o comando no formato `xdy`. Exemplo: `2d6` rola dois dados de 6 faces.\n Role dados de até no máximo 12 faces.');
         return;
     }
 });
