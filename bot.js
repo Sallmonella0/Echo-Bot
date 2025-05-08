@@ -83,7 +83,7 @@ client.on('messageCreate', (message) => {
         return;
     }
 
-    if (conteudo === '!ajuda') {
+    if (conteudo === '!ajuda') { 
         const textoAjuda = Object.entries(COMANDOS)
             .map(([comando, descricao]) => `${comando} – ${descricao}`)
             .join('\n');
