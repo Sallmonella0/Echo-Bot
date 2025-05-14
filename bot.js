@@ -74,7 +74,7 @@ if (match) {
     if (qtd > 0 && max > 0 && max <= 12) {
         const resultados = rolarDado(qtd, max);
         const emojis = resultados.map(gerarEmoji);
-        const mensagemFinal = '🎲 Resultados:\n' + emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
+        const mensagemFinal = emojis.map((emoji, i)).join('\n');
         enviarMensagem(message, mensagemFinal);
     } else {
         enviarMensagem(message, '❌ Por favor, use valores válidos (máximo 12 faces).');
