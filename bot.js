@@ -64,24 +64,23 @@ client.on('messageCreate', (message) => {
     }
 
     const conteudo = message.content.trim().toLowerCase();
-    const regex = /^(\d*d\d+)$/i;
+    const regex = /^(\d*)d(\d+)$/i;
+const match = conteudo.match(regex);
 
-    const match = conteudo.match(regex);
+if (match) {
+    const qtd = parseInt(match[1]) || 1; // Se vazio, assume 1
+    const max = parseInt(match[2]);
 
-    if (match) {
-        const qtd = match[1] ? parseInt(match[1]) : 1;
-        const max = parseInt(match[2]);
-
-        if (qtd > 0 && max > 0) {
-            const resultados = rolarDado(qtd, max);
-            const emojis = resultados.map(gerarEmoji);
-            const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
-            enviarMensagem(message, `${mensagemFinal}`);
-        } else {
-            enviarMensagem(message , 'Utilize valores válidos para a rolagem.');
-        }
-        return;
+    if (qtd > 0 && max > 0 && max <= 12) {
+        const resultados = rolarDado(qtd, max);
+        const emojis = resultados.map(gerarEmoji);
+        const mensagemFinal = '🎲 Resultados:\n' + emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
+        enviarMensagem(message, mensagemFinal);
+    } else {
+        enviarMensagem(message, '❌ Por favor, use valores válidos (máximo 12 faces).');
     }
+    return;
+}
 
     if (conteudo === '!ajuda') { 
         const textoAjuda = Object.entries(COMANDOS)
