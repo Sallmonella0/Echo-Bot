@@ -1,13 +1,30 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Painel do Echo Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Echo Bot - Painel</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🤖 Echo Bot – Painel</h1>
-  <p id="resumo">Carregando informações...</p>
+  <h1>🤖 Echo Bot</h1>
+  <p>Bot online e funcionando!</p>
+  <div id="servidores">
+    <p>Carregando lista de servidores...</p>
+  </div>
+
+  <script>
+    fetch('/api/servidores')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('servidores');
+        container.innerHTML = '<h2>Servidores:</h2><ul>' +
+          data.map(g => `<li>${g.nome} – ${g.membros} membros</li>`).join('') +
+          '</ul>';
+      })
+      .catch(() => {
+        document.getElementById('servidores').innerText = 'Erro ao carregar servidores.';
+      });
+  </script>
 </body>
 </html>
