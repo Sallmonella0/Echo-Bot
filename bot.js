@@ -1,9 +1,13 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
+
+// Servir arquivos estáticos da pasta 'public'
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Inicializa o bot com as intents necessárias
 const client = new Client({
@@ -11,7 +15,7 @@ const client = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildMembers // IMPORTANTE!
+        GatewayIntentBits.GuildMembers
     ]
 });
 
@@ -45,7 +49,9 @@ function rolarDado(qtd, max) {
 
 function gerarEmoji(numero) {
     const emojis = [
-        '🚫', '🚫', '🐱', '🐱🦌', '🐱🦌', '🐞', '🐞🐞', '🐞🦌', '🐞🦌🐱', '🐞🐞🐱', '🐞🦌🦌🐱', '🐱🐱'
+        '🚫', '🚫', '🐱', '🐱🦌', '🐱🦌', '🐞',
+        '🐞🐞', '🐞🦌', '🐞🦌🐱', '🐞🐞🐱',
+        '🐞🦌🦌🐱', '🐱🐱'
     ];
     return emojis[numero - 1] || '🎲';
 }
@@ -65,24 +71,24 @@ client.on('messageCreate', (message) => {
 
     const conteudo = message.content.trim().toLowerCase();
     const regex = /^(\d*)d(\d+)$/i;
-const match = conteudo.match(regex);
+    const match = conteudo.match(regex);
 
-if (match) {
-    const qtd = parseInt(match[1]) || 1; // Se vazio, assume 1
-    const max = parseInt(match[2]);
+    if (match) {
+        const qtd = parseInt(match[1]) || 1;
+        const max = parseInt(match[2]);
 
-    if (qtd > 0 && max > 0 && max <= 12) {
-        const resultados = rolarDado(qtd, max);
-        const emojis = resultados.map(gerarEmoji);
-        const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
-        enviarMensagem(message, mensagemFinal);
-    } else {
-        enviarMensagem(message, '❌ Por favor, use valores válidos (máximo 12 faces).');
+        if (qtd > 0 && max > 0 && max <= 12) {
+            const resultados = rolarDado(qtd, max);
+            const emojis = resultados.map(gerarEmoji);
+            const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
+            enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+        } else {
+            enviarMensagem(message, '❌ Por favor, use valores válidos (máximo 12 faces).');
+        }
+        return;
     }
-    return;
-}
 
-    if (conteudo === '!ajuda') { 
+    if (conteudo === '!ajuda') {
         const textoAjuda = Object.entries(COMANDOS)
             .map(([comando, descricao]) => `${comando} – ${descricao}`)
             .join('\n');
@@ -101,38 +107,38 @@ if (match) {
     }
 
     if (conteudo === '!rollhelp') {
-        enviarMensagem(message, ' Role dados de até no máximo 12 faces.');
+        enviarMensagem(message,
+            '🎲 Role dados de até no máximo 12 faces.\nUse o comando no formato xdy. Exemplo: 2d6 rola dois dados de 6 faces.');
         return;
     }
 });
 
-// Rota web para exibir servidores e membros
-app.get('/', async (req, res) => {
+// Rota adicional (JSON dinâmico, opcional)
+app.get('/api/servidores', async (req, res) => {
     try {
         const guilds = client.guilds.cache;
-        let resposta = `<h2>🤖 Bot está em ${guilds.size} servidores:</h2><ul>`;
+        const data = [];
 
         for (const [id, guild] of guilds) {
             try {
                 const membros = await guild.members.fetch({ withPresences: false });
-                resposta += `<li>${guild.name} - ${membros.size} membros</li>`;
-            } catch (e) {
-                resposta += `<li>${guild.name} - Erro ao buscar membros</li>`;
+                data.push({ nome: guild.name, membros: membros.size });
+            } catch {
+                data.push({ nome: guild.name, membros: 'Erro ao buscar' });
             }
         }
 
-        resposta += '</ul>';
-        res.send(resposta);
+        res.json(data);
     } catch (erro) {
-        console.error('Erro na rota /:', erro);
-        res.status(500).send("Erro ao buscar informações dos servidores.");
+        console.error('Erro na rota /api/servidores:', erro);
+        res.status(500).send("Erro ao buscar informações.");
     }
 });
 
-// Inicia servidor Express
+// Inicia o servidor
 app.listen(PORT, () => {
     console.log(`🌐 Painel disponível em http://localhost:${PORT}`);
 });
 
-// Login do bot
+// Login no bot
 client.login(process.env.DISCORD_TOKEN);
