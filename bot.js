@@ -6,6 +6,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+app.use(express.static(__dirname));
+
+
 // Servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
 
