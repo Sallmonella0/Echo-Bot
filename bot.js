@@ -1,16 +1,9 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
-const path = require('path');
 
 const app = express();
 const PORT = 3000;
-
-app.use(express.static(__dirname));
-
-
-// Servir arquivos estáticos da pasta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Inicializa o bot com as intents necessárias
 const client = new Client({
@@ -18,7 +11,7 @@ const client = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildMembers
+        GatewayIntentBits.GuildMembers // IMPORTANTE para pegar membros
     ]
 });
 
@@ -34,12 +27,6 @@ const COMANDOS = {
     '!ping': 'Responde com "Pong!" para verificar se o bot está online'
 };
 
-function sugerirComandos(input) {
-    return Object.entries(COMANDOS)
-        .filter(([comando]) => comando.toLowerCase().startsWith(input.toLowerCase()))
-        .map(([comando, descricao]) => `${comando} – ${descricao}`);
-}
-
 function rolarDado(qtd, max) {
     const resultados = [];
     const quantidade = qtd > 0 ? qtd : 1;
@@ -52,96 +39,125 @@ function rolarDado(qtd, max) {
 
 function gerarEmoji(numero) {
     const emojis = [
-        '🚫', '🚫', '🐱', '🐱🦌', '🐱🦌', '🐞',
-        '🐞🐞', '🐞🦌', '🐞🦌🐱', '🐞🐞🐱',
-        '🐞🦌🦌🐱', '🐱🐱'
+        '🚫', '🚫', '🐱', '🐱🦌', '🐱🦌', '🐞', '🐞🐞', '🐞🦌', '🐞🦌🐱', '🐞🐞🐱', '🐞🦌🦌🐱', '🐱🐱'
     ];
     return emojis[numero - 1] || '🎲';
 }
 
-function enviarMensagem(message, conteudo) {
-    message.channel.send(conteudo);
+function enviarMensagem(channel, conteudo) {
+    channel.send(conteudo).catch(console.error);
 }
 
 // Evento de mensagem
 client.on('messageCreate', (message) => {
-    if (message.author.bot) return;
+    if (message.author.bot) return; // Ignorar bots
 
+    // Se o bot for mencionado
     if (message.mentions.has(client.user)) {
-        enviarMensagem(message, 'Oi! Você me mencionou? Digite `!ajuda` para ver o que eu posso fazer!');
+        enviarMensagem(message.channel, 'Oi! Você me mencionou? Digite `!ajuda` para ver o que eu posso fazer!');
         return;
     }
 
     const conteudo = message.content.trim().toLowerCase();
+
+    // Regex para rolagem tipo "2d6" ou "d12"
     const regex = /^(\d*)d(\d+)$/i;
     const match = conteudo.match(regex);
 
     if (match) {
-        const qtd = parseInt(match[1]) || 1;
+        const qtd = parseInt(match[1]) || 1; // Se vazio, assume 1
         const max = parseInt(match[2]);
 
         if (qtd > 0 && max > 0 && max <= 12) {
             const resultados = rolarDado(qtd, max);
             const emojis = resultados.map(gerarEmoji);
             const mensagemFinal = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
-            enviarMensagem(message, `🎲 Resultados:\n${mensagemFinal}`);
+            enviarMensagem(message.channel, mensagemFinal);
         } else {
-            enviarMensagem(message, '❌ Por favor, use valores válidos (máximo 12 faces).');
+            enviarMensagem(message.channel, '❌ Por favor, use valores válidos (máximo 12 faces).');
         }
         return;
     }
 
-    if (conteudo === '!ajuda') {
-        const textoAjuda = Object.entries(COMANDOS)
-            .map(([comando, descricao]) => `${comando} – ${descricao}`)
-            .join('\n');
-        enviarMensagem(message, `📋 Comandos disponíveis:\n${textoAjuda}`);
-        return;
-    }
+    // Comandos fixos
+    switch (conteudo) {
+        case '!ajuda':
+            {
+                const textoAjuda = Object.entries(COMANDOS)
+                    .map(([comando, descricao]) => `${comando} – ${descricao}`)
+                    .join('\n');
+                enviarMensagem(message.channel, `📋 Comandos disponíveis:\n${textoAjuda}`);
+            }
+            break;
 
-    if (conteudo === '!ping') {
-        enviarMensagem(message, 'Pong! O bot está online.');
-        return;
-    }
+        case '!ping':
+            enviarMensagem(message.channel, 'Pong! O bot está online.');
+            break;
 
-    if (conteudo === '!info') {
-        enviarMensagem(message, 'Sou um bot de dados! Use `!ajuda` para ver o que posso fazer.');
-        return;
-    }
+        case '!info':
+            enviarMensagem(message.channel, 'Sou um bot de dados! Use `!ajuda` para ver o que posso fazer.');
+            break;
 
-    if (conteudo === '!rollhelp') {
-        enviarMensagem(message,
-            '🎲 Role dados de até no máximo 12 faces.\nUse o comando no formato xdy. Exemplo: 2d6 rola dois dados de 6 faces.');
-        return;
+        case '!rollhelp':
+            enviarMensagem(message.channel,
+                'Role dados de até no máximo 12 faces.\n' +
+                'Use o comando no formato xdy. Exemplo: 2d6 rola dois dados de 6 faces.'
+            );
+            break;
+
+        default:
+            // Se quiser, pode adicionar resposta para comandos não reconhecidos
+            break;
     }
 });
 
-// Rota adicional (JSON dinâmico, opcional)
-app.get('/api/servidores', async (req, res) => {
+// Rota web para exibir servidores e membros
+app.get('/', async (req, res) => {
     try {
         const guilds = client.guilds.cache;
-        const data = [];
+        let resposta = `
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8" />
+                <title>Painel do Bot</title>
+                <style>
+                    body { font-family: Arial, sans-serif; background: #121212; color: #eee; margin: 20px; }
+                    h2 { color: #61dafb; }
+                    ul { list-style-type: none; padding-left: 0; }
+                    li { background: #222; margin: 5px 0; padding: 10px; border-radius: 5px; }
+                </style>
+            </head>
+            <body>
+                <h2>🤖 Bot está em ${guilds.size} servidor(es):</h2>
+                <ul>
+        `;
 
         for (const [id, guild] of guilds) {
             try {
                 const membros = await guild.members.fetch({ withPresences: false });
-                data.push({ nome: guild.name, membros: membros.size });
-            } catch {
-                data.push({ nome: guild.name, membros: 'Erro ao buscar' });
+                resposta += `<li><strong>${guild.name}</strong> - ${membros.size} membros</li>`;
+            } catch (e) {
+                resposta += `<li><strong>${guild.name}</strong> - Erro ao buscar membros</li>`;
             }
         }
 
-        res.json(data);
+        resposta += `
+                </ul>
+            </body>
+            </html>
+        `;
+        res.send(resposta);
     } catch (erro) {
-        console.error('Erro na rota /api/servidores:', erro);
-        res.status(500).send("Erro ao buscar informações.");
+        console.error('Erro na rota /:', erro);
+        res.status(500).send("Erro ao buscar informações dos servidores.");
     }
 });
 
-// Inicia o servidor
+// Inicia servidor Express
 app.listen(PORT, () => {
     console.log(`🌐 Painel disponível em http://localhost:${PORT}`);
 });
 
-// Login no bot
+// Login do bot
 client.login(process.env.DISCORD_TOKEN);
