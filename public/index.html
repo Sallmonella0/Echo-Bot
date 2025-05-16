@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Painel do Echo Bot</title>
+  <title>Echo</title>
   <link rel="stylesheet" href="style.css" />
-
+  <link rel="icon" href="img/echo_icon.png">
 </head>
 <body>
   <header>
@@ -18,38 +18,43 @@
     <div class="status-box">
       <div class="status-card">
         <h3>Servidores</h3>
-        <p>3</p>
+        <p id="server-count">Carregando...</p>
       </div>
       <div class="status-card">
         <h3>Usuários</h3>
-        <p>129</p>
+        <p id="user-count">Carregando...</p>
       </div>
       <div class="status-card">
         <h3>Uptime</h3>
-        <p>2h 14min</p>
+        <p id="uptime">Carregando...</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>📝 Testar Comando</h2>
-    <input type="text" class="command-input" placeholder="Digite um comando ex: !ping" />
-    <button class="button">Executar</button>
-  </section>
-
-  <section>
-    <h2>📣 Enviar Mensagem</h2>
-    <input type="text" class="message-input" placeholder="Mensagem para enviar ao canal de testes" />
-    <button class="button">Enviar</button>
-  </section>
-
-  <section>
     <h2>📌 Servidores Monitorados</h2>
-    <ul>
-      <li>Servidor 1 - 52 membros</li>
-      <li>Servidor 2 - 31 membros</li>
-      <li>Servidor 3 - 46 membros</li>
-    </ul>
+    <ul id="server-list">Carregando lista de servidores...</ul>
   </section>
+
+  <script>
+    fetch("/dados")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("server-count").innerText = data.totalServidores;
+        document.getElementById("user-count").innerText = data.totalMembros;
+        document.getElementById("uptime").innerText = data.uptime;
+
+        const lista = document.getElementById("server-list");
+        lista.innerHTML = '';
+        data.servidores.forEach(s => {
+          const li = document.createElement("li");
+          li.innerText = `${s.nome} - ${s.membros} membros`;
+          lista.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById("server-list").innerText = "Erro ao carregar dados.";
+      });
+  </script>
 </body>
 </html>
