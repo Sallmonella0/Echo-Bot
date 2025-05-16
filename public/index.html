@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Echo</title>
+  <title>Painel do Echo Bot</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="img/echo_icon.png">
 </head>
 <body>
   <header>
@@ -18,11 +17,11 @@
     <div class="status-box">
       <div class="status-card">
         <h3>Servidores</h3>
-        <p id="server-count">Carregando...</p>
+        <p id="servidores">Carregando...</p>
       </div>
       <div class="status-card">
         <h3>Usuários</h3>
-        <p id="user-count">Carregando...</p>
+        <p id="usuarios">Carregando...</p>
       </div>
       <div class="status-card">
         <h3>Uptime</h3>
@@ -31,22 +30,6 @@
     </div>
   </section>
 
-  <section>
-    <h2>📌 Servidores Monitorados</h2>
-    <ul id="server-list">Carregando lista de servidores...</ul>
-  </section>
-
-<script>
-  // Carrega dados via API
-  fetch('/api/estatisticas')
-    .then(res => res.json())
-    .then(data => {
-      document.querySelector('.status-card:nth-child(1) p').textContent = data.servidores;
-      document.querySelector('.status-card:nth-child(2) p').textContent = data.usuarios;
-      document.querySelector('.status-card:nth-child(3) p').textContent = data.uptime;
-    })
-    .catch(err => console.error('Erro ao carregar estatísticas:', err));
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
