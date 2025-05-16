@@ -1,4 +1,4 @@
-const { rolarDado, gerarEmoji } = require('../utils/dadoUtils');
+const { rolarDado, gerarEmoji } = require('../utils/dadosUtils');
 
 module.exports = {
   nome: 'rolagem',
