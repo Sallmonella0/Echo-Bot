@@ -1,15 +1,18 @@
-async function carregarEstatisticas() {
+async function fetchStats() {
   try {
-    const res = await fetch('/api/estatisticas');
+    const res = await fetch('/api/stats');
     const data = await res.json();
 
-    document.getElementById('servidores').textContent = data.servidores;
-    document.getElementById('usuarios').textContent = data.usuarios;
-    document.getElementById('uptime').textContent = data.uptime;
-  } catch (erro) {
-    console.error('Erro ao carregar estatísticas:', erro);
+    document.getElementById('guilds').textContent = data.guilds;
+    document.getElementById('users').textContent = data.users;
+    
+    const hours = Math.floor(data.uptime / 3600);
+    const minutes = Math.floor((data.uptime % 3600) / 60);
+    document.getElementById('uptime').textContent = `${hours}h ${minutes}min`;
+
+  } catch (err) {
+    console.error('Erro ao buscar estatísticas:', err);
   }
 }
 
-carregarEstatisticas();
-setInterval(carregarEstatisticas, 60000); // atualiza a cada 60s
+window.onload = fetchStats;

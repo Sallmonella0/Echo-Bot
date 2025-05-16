@@ -1,57 +1,46 @@
-const express = require('express');
-const { Client, GatewayIntentBits } = require('discord.js');
-const path = require('path');
 require('dotenv').config();
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const fs = require('fs');
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// === BOT DISCORD ===
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-    GatewayIntentBits.GuildMembers
-  ],
+    GatewayIntentBits.MessageContent
+  ]
 });
 
-// Variável para armazenar hora de início (uptime)
-const botStartTime = Date.now();
+client.commands = new Collection();
 
-// Login do bot
-client.once('ready', () => {
-  console.log(`🤖 Bot está online como ${client.user.tag}`);
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.name, command);
+}
+
+client.on('ready', () => {
+  console.log(`🤖 Bot iniciado como ${client.user.tag}`);
+  client.startTime = Date.now(); // necessário para o uptime
 });
 
-client.login(process.env.TOKEN);
+client.on('messageCreate', async message => {
+  if (message.author.bot || !message.content.startsWith('!')) return;
 
-// === SERVIDOR EXPRESS ===
+  const args = message.content.slice(1).trim().split(/ +/);
+  const commandName = args.shift().toLowerCase();
 
-// Servir arquivos estáticos do diretório 'public'
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Rota para fornecer estatísticas do bot
-app.get('/api/estatisticas', async (req, res) => {
-  if (!client || !client.user) {
-    return res.status(503).json({ error: 'Bot ainda não está pronto.' });
+  const command = client.commands.get(commandName);
+  if (command) {
+    try {
+      await command.execute(message, args);
+    } catch (err) {
+      console.error(err);
+      message.reply('Ocorreu um erro ao executar o comando.');
+    }
   }
-
-  const servidores = client.guilds.cache.size;
-  const usuarios = client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0);
-
-  const uptimeMs = Date.now() - botStartTime;
-  const uptimeHoras = Math.floor(uptimeMs / (1000 * 60 * 60));
-  const uptimeMinutos = Math.floor((uptimeMs / (1000 * 60)) % 60);
-
-  res.json({
-    servidores,
-    usuarios,
-    uptime: `${uptimeHoras}h ${uptimeMinutos}min`
-  });
 });
 
-// Iniciar servidor web
-app.listen(PORT, () => {
-  console.log(`🌐 Painel disponível em: http://localhost:${PORT}`);
-});
+module.exports = client;
+
+client.login(process.env.DISCORD_TOKEN);
