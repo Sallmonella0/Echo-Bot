@@ -1,7 +1,7 @@
 const { rolarDado, gerarEmoji } = require('../utils/dadosUtils');
 
 module.exports = {
-  nome: 'rolagem',
+  nome: 'roll',
   tipo: 'padrao', // tipo "padrao" = comando sem prefixo (!)
   executar(message, conteudo) {
     const regex = /^(\d*)d(\d+)$/i;
