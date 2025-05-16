@@ -58,4 +58,35 @@ client.on('messageCreate', message => {
   }
 });
 
+app.get('/api/status', async (req, res) => {
+    try {
+        const guilds = client.guilds.cache;
+        const totalServidores = guilds.size;
+
+        let totalMembros = 0;
+        for (const [id, guild] of guilds) {
+            try {
+                const membros = await guild.members.fetch({ withPresences: false });
+                totalMembros += membros.size;
+            } catch (e) {
+                console.error(`Erro ao buscar membros do servidor ${guild.name}:`, e);
+            }
+        }
+
+        const uptime = process.uptime(); // segundos
+        const horas = Math.floor(uptime / 3600);
+        const minutos = Math.floor((uptime % 3600) / 60);
+
+        res.json({
+            servidores: totalServidores,
+            membros: totalMembros,
+            uptime: `${horas}h ${minutos}min`
+        });
+    } catch (err) {
+        console.error('Erro ao gerar status:', err);
+        res.status(500).json({ error: 'Erro ao obter status.' });
+    }
+});
+
+
 client.login(process.env.BOT_TOKEN);
