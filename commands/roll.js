@@ -1,19 +1,27 @@
+const { rolarDado, gerarEmoji } = require('../utils/dadoUtils');
+
 module.exports = {
-  name: 'roll',
-  description: 'Rola um dado no formato XdY, como 2d6',
-  async execute(message, args) {
-    const match = args[0]?.match(/^(\d+)d(\d+)$/);
-    if (!match) {
-      return message.reply('Formato inválido. Use !roll XdY (ex: !roll 2d6)');
+  nome: 'rolagem',
+  tipo: 'padrao', // tipo "padrao" = comando sem prefixo (!)
+  executar(message, conteudo) {
+    const regex = /^(\d*)d(\d+)$/i;
+    const match = conteudo.match(regex);
+
+    if (match) {
+      const qtd = parseInt(match[1]) || 1;
+      const max = parseInt(match[2]);
+
+      if (qtd > 0 && max > 0 && max <= 12) {
+        const resultados = rolarDado(qtd, max);
+        const emojis = resultados.map(gerarEmoji);
+        const resposta = emojis.map((emoji, i) => `${i + 1}: ${emoji}`).join('\n');
+        message.channel.send(resposta);
+      } else {
+        message.channel.send('❌ Por favor, use valores válidos (máximo 12 faces).');
+      }
+      return true; // sinaliza que o comando foi tratado
     }
 
-    const [ , count, sides ] = match.map(Number);
-    if (count > 100 || sides > 1000) {
-      return message.reply('Número muito alto. Use valores menores.');
-    }
-
-    const rolls = Array.from({ length: count }, () => Math.floor(Math.random() * sides) + 1);
-    const total = rolls.reduce((a, b) => a + b, 0);
-    message.reply(`🎲 Rolagens: ${rolls.join(', ')} (Total: ${total})`);
+    return false; // não tratou
   }
 };
