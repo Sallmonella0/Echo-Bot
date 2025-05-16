@@ -50,15 +50,15 @@ client.on('messageCreate', message => {
   const rollRegex = /^(\d+)d(\d+)$/i;
   const match = content.match(rollRegex);
   if (match) {
-    const rollCommand = commands.get('roll');
-    if (rollCommand) {
-      try {
-        rollCommand.execute(message, match[1], match[2]);
-      } catch (err) {
-        console.error(err);
-        message.reply('❌ Erro ao rolar dados.');
-      }
-    }
+    const rollCommand = commands.get('rolagem'); // ou 'roll', conforme definido no comando
+if (rollCommand) {
+  try {
+    rollCommand.execute(message, match[0]); // passe o conteúdo completo, ex: '2d6'
+  } catch (err) {
+    console.error(err);
+    message.reply('❌ Erro ao rolar dados.');
+  }
+}
   }
 });
 
