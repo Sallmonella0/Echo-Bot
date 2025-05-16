@@ -1,6 +1,7 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 require('dotenv').config(); // Carrega variáveis de ambiente do .env
 
 const client = new Client({
