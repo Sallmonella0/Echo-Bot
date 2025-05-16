@@ -1,101 +1,61 @@
-require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
-const express = require('express');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config(); // Carrega variáveis de ambiente do .env
 
 const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-    GatewayIntentBits.GuildMembers
-  ]
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
-const app = express();
-const PORT = 3000;
+const commands = new Map();
 
-// Servir arquivos estáticos (HTML, CSS, etc.)
-app.use(express.static(path.join(__dirname, 'public')));
+// Carrega os comandos da pasta commands/
+const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+  commands.set(command.name, command);
+}
 
-// Carregar comandos
-const comandos = [];
-const comandosPath = path.join(__dirname, 'commands');
-fs.readdirSync(comandosPath).forEach(file => {
-  const comando = require(path.join(comandosPath, file));
-  comandos.push(comando);
-});
-
-// Quando o bot estiver online
 client.once('ready', () => {
-  console.log('🤖 Bot está online!');
+  console.log(`✅ Bot está online como ${client.user.tag}`);
 });
 
-// Lidar com mensagens do Discord
-client.on('messageCreate', (message) => {
+// Evento principal de mensagens
+client.on('messageCreate', message => {
   if (message.author.bot) return;
 
-  const conteudo = message.content.trim();
+  const content = message.content.trim();
 
-  // Verifica se a mensagem é uma menção ao bot
-  if (message.mentions.has(client.user)) {
-    message.channel.send('Oi! Você me mencionou? Digite `!ajuda` para ver o que eu posso fazer!');
+  // Verifica se é um comando com prefixo "!"
+  if (content.startsWith('!')) {
+    const [cmdName, ...args] = content.slice(1).split(' ');
+    const command = commands.get(cmdName);
+
+    if (command) {
+      try {
+        command.execute(message, client, args);
+      } catch (err) {
+        console.error(err);
+        message.reply('❌ Ocorreu um erro ao executar o comando.');
+      }
+    }
     return;
   }
 
-  // Executar comandos
-  for (const comando of comandos) {
-    if (comando.tipo === 'prefixo' && conteudo.toLowerCase() === comando.nome) {
-      comando.executar(message);
-      break;
-    }
-
-    if (comando.tipo === 'padrao' && comando.executar(message, conteudo)) {
-      break;
-    }
-  }
-});
-
-// Rota web dinâmica com dados
-app.get('/dados', async (req, res) => {
-  try {
-    const guilds = client.guilds.cache;
-    const dados = [];
-
-    for (const [id, guild] of guilds) {
+  // Verifica se é um comando de rolagem de dados (ex: 2d6, 1d20)
+  const rollRegex = /^(\d+)d(\d+)$/i;
+  const match = content.match(rollRegex);
+  if (match) {
+    const rollCommand = commands.get('roll');
+    if (rollCommand) {
       try {
-        const membros = await guild.members.fetch({ withPresences: false });
-        dados.push({ nome: guild.name, membros: membros.size });
-      } catch {
-        dados.push({ nome: guild.name, membros: 'Erro' });
+        rollCommand.execute(message, match[1], match[2]);
+      } catch (err) {
+        console.error(err);
+        message.reply('❌ Erro ao rolar dados.');
       }
     }
-
-    res.json({
-      servidores: guilds.size,
-      membros: dados.reduce((soma, g) => soma + (isNaN(g.membros) ? 0 : g.membros), 0),
-      lista: dados,
-      uptime: formatarUptime(client.uptime)
-    });
-
-  } catch (erro) {
-    console.error('Erro ao obter dados:', erro);
-    res.status(500).json({ erro: 'Erro ao obter dados do bot.' });
   }
 });
 
-// Função para formatar uptime
-function formatarUptime(ms) {
-  const h = Math.floor(ms / 3600000);
-  const m = Math.floor((ms % 3600000) / 60000);
-  return `${h}h ${m}min`;
-}
-
-// Inicia o servidor Express
-app.listen(PORT, () => {
-  console.log(`🌐 Painel disponível em http://localhost:${PORT}`);
-});
-
-// Login do bot
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.BOT_TOKEN);
