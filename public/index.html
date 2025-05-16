@@ -36,25 +36,17 @@
     <ul id="server-list">Carregando lista de servidores...</ul>
   </section>
 
-  <script>
-    fetch("/dados")
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("server-count").innerText = data.totalServidores;
-        document.getElementById("user-count").innerText = data.totalMembros;
-        document.getElementById("uptime").innerText = data.uptime;
+<script>
+  // Carrega dados via API
+  fetch('/api/estatisticas')
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector('.status-card:nth-child(1) p').textContent = data.servidores;
+      document.querySelector('.status-card:nth-child(2) p').textContent = data.usuarios;
+      document.querySelector('.status-card:nth-child(3) p').textContent = data.uptime;
+    })
+    .catch(err => console.error('Erro ao carregar estatísticas:', err));
+</script>
 
-        const lista = document.getElementById("server-list");
-        lista.innerHTML = '';
-        data.servidores.forEach(s => {
-          const li = document.createElement("li");
-          li.innerText = `${s.nome} - ${s.membros} membros`;
-          lista.appendChild(li);
-        });
-      })
-      .catch(err => {
-        document.getElementById("server-list").innerText = "Erro ao carregar dados.";
-      });
-  </script>
 </body>
 </html>
