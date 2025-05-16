@@ -2,26 +2,23 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Painel do Echo Bot</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="img/echo_icon.png">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>🎮 Painel de Controle do Echo Bot</h1>
-    <p>Gerencie e monitore seu bot diretamente por aqui.</p>
-  </header>
+  <h1>🎮 Painel de Controle do Echo Bot</h1>
+  <p>Gerencie e monitore seu bot diretamente por aqui.</p>
 
   <section>
     <h2>📊 Estatísticas</h2>
-    <div class="status-box">
-      <div class="status-card"><h3>Servidores</h3><p id="guilds">Carregando...</p></div>
-      <div class="status-card"><h3>Usuários</h3><p id="users">Carregando...</p></div>
-      <div class="status-card"><h3>Uptime</h3><p id="uptime">Carregando...</p></div>
+    <div id="stats">
+      <div class="stat"><strong>Servidores:</strong> <span id="servers">Carregando...</span></div>
+      <div class="stat"><strong>Usuários:</strong> <span id="users">Carregando...</span></div>
+      <div class="stat"><strong>Uptime:</strong> <span id="uptime">Carregando...</span></div>
     </div>
   </section>
 
-  <script src="script.js" defer></script>
-
+  <script src="script.js"></script>
 </body>
 </html>

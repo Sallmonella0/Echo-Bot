@@ -1,12 +1,14 @@
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('/api/status')
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('servidores').textContent = data.servidores;
-      document.getElementById('usuarios').textContent = data.membros;
-      document.getElementById('uptime').textContent = data.uptime;
-    })
-    .catch(error => {
-      console.error('Erro ao carregar status:', error);
-    });
-});
+async function carregarEstatisticas() {
+  try {
+    const resposta = await fetch('/api/stats');
+    const dados = await resposta.json();
+    document.getElementById('servers').textContent = dados.servers;
+    document.getElementById('users').textContent = dados.users;
+    document.getElementById('uptime').textContent = dados.uptime;
+  } catch (erro) {
+    console.error('Erro ao buscar estatísticas:', erro);
+  }
+}
+
+carregarEstatisticas();
+setInterval(carregarEstatisticas, 5000);
