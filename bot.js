@@ -30,7 +30,7 @@ client.on('messageCreate', async (message) => {
   const diceRegex = /^(\d+)d(\d+)$/i;
   const match = message.content.match(diceRegex);
   if (match) {
-    const rollCommand = client.commands.get('roll');
+    rollCommand.execute(message, message.content);
     if (rollCommand) rollCommand.execute(message, match);
     return;
   }
