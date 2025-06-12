@@ -29,11 +29,11 @@ client.on('messageCreate', async (message) => {
   // Detecção de padrão XdY
   const diceRegex = /^(\d+)d(\d+)$/i;
   const match = message.content.match(diceRegex);
-  if (match) {
-    rollCommand.execute(message, message.content);
-    if (rollCommand) rollCommand.execute(message, match);
-    return;
-  }
+if (match) {
+  const rollCommand = client.commands.get('roll');
+  if (rollCommand) rollCommand.execute(message, message.content);
+  return;
+}
 
   const prefix = '!';
   if (!message.content.startsWith(prefix)) return;
