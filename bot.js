@@ -65,6 +65,17 @@ client.on('ready', () => {
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
+  // Se o bot for mencionado
+  if (message.mentions.has(client.user)) {
+    // Remove a menção do texto
+    const prompt = message.content.replace(`<@${client.user.id}>`, '').trim();
+    const iaCommand = client.commands.get('ia');
+    if (iaCommand) {
+      iaCommand.execute(message, prompt);
+    }
+    return;
+  }
+
   // Detecção de padrão XdY
   const diceRegex = /^(\d+)d(\d+)$/i;
   const match = message.content.match(diceRegex);
