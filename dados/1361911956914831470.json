@@ -1,0 +1,65 @@
+[
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      2,
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫",
+      "🐱"
+    ],
+    "data": "2025-06-13T17:09:27.135Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "5d12",
+    "resultado": [
+      5,
+      6,
+      3,
+      6,
+      9
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão",
+      "adaptação",
+      "pressão",
+      "sucesso"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐞",
+      "🐱",
+      "🐞",
+      "🐞🦌🐱"
+    ],
+    "data": "2025-06-13T17:09:33.657Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d12",
+    "resultado": [
+      10,
+      1
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞🐞🐱",
+      "🚫"
+    ],
+    "data": "2025-06-13T17:09:35.186Z"
+  }
+]

@@ -2,6 +2,16 @@ const { rolarDado, gerarEmoji } = require('../utils/dadosUtils');
 const fs = require('fs');
 const path = require('path');
 
+function resultadoPorExtenso(numero) {
+  switch (numero) {
+    case 1: case 2: return 'vazio';
+    case 3: case 4: case 5: return 'adaptação';
+    case 6: case 7: case 8: return 'pressão';
+    case 9: case 10: case 11: case 12: return 'sucesso';
+    default: return 'desconhecido';
+  }
+}
+
 module.exports = {
   name: 'roll',
   tipo: 'padrao',
@@ -16,9 +26,9 @@ module.exports = {
       if (qtd > 0 && max > 0 && max <= 12) {
         const resultados = rolarDado(qtd, max);
         const emojis = resultados.map(gerarEmoji);
-        const resposta = emojis.join(' ');
+        const resposta = emojis.join('\n');
 
-        // --- Aqui entra o trecho para salvar o histórico ---
+        // Salvar histórico com emojis e resultadoExtenso
         if (message.guild) {
           const guildId = message.guild.id;
           const dirPath = path.join(__dirname, '..', 'dados');
@@ -32,11 +42,13 @@ module.exports = {
             usuario: message.author.tag,
             comando: conteudo,
             resultado: resultados,
+            resultadoExtenso: resultados.map(resultadoPorExtenso),
+            emojis: emojis,
             data: new Date().toISOString()
           });
           fs.writeFileSync(filePath, JSON.stringify(historico, null, 2));
         }
-        // ---------------------------------------------------
+        
 
         message.channel.send(resposta);
       } else {

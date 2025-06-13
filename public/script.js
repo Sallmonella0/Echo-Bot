@@ -29,7 +29,12 @@ async function carregarHistorico() {
       return;
     }
     historicoEl.innerHTML = historico.map(item =>
-      `<li><strong>${item.usuario}</strong> rolou <em>${item.comando}</em>: [${item.resultado.join(', ')}] <small>(${new Date(item.data).toLocaleString()})</small></li>`
+      `<li>
+        <strong>${item.usuario}</strong> rolou <em>${item.comando}</em>:<br>
+        ${item.emojis ? item.emojis.map(e => `${e}`).join('<br>') : ''}<br>
+        <small>${item.resultadoExtenso ? item.resultadoExtenso.join('<br>') : ''}</small>
+        <br><small>(${new Date(item.data).toLocaleString()})</small>
+      </li>`
     ).join('');
   } catch (erro) {
     historicoEl.innerHTML = '<li>Erro ao buscar histórico.</li>';

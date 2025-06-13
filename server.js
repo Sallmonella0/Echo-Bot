@@ -26,7 +26,6 @@ function formatUptime(seconds) {
 }
 
 const fs = require('fs');
-const path = require('path');
 
 // Retorna o histórico de um servidor
 app.get('/api/guild/:guildId/historico', (req, res) => {
