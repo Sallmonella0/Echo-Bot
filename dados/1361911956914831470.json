@@ -61,5 +61,65 @@
       "🚫"
     ],
     "data": "2025-06-13T17:09:35.186Z"
+  },
+  {
+    "usuario": "__cupid__",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      4,
+      2
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🚫"
+    ],
+    "data": "2025-06-13T17:13:36.139Z"
+  },
+  {
+    "usuario": "__cupid__",
+    "comando": "3d6",
+    "resultado": [
+      2,
+      2,
+      5
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫",
+      "🐱🦌"
+    ],
+    "data": "2025-06-13T17:14:15.230Z"
+  },
+  {
+    "usuario": "__cupid__",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      4,
+      4
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🐱🦌"
+    ],
+    "data": "2025-06-13T17:14:17.658Z"
   }
 ]

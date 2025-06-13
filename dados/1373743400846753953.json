@@ -55,5 +55,102 @@
       "🐱🦌"
     ],
     "data": "2025-06-13T17:06:27.418Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d12",
+    "resultado": [
+      3,
+      1
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱",
+      "🚫"
+    ],
+    "data": "2025-06-13T17:17:24.282Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      2,
+      1,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-13T17:18:46.725Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      6,
+      5,
+      5
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐞",
+      "🐱🦌",
+      "🐱🦌"
+    ],
+    "data": "2025-06-13T17:18:49.307Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      1,
+      3,
+      5
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🚫",
+      "🐱",
+      "🐱🦌"
+    ],
+    "data": "2025-06-13T17:18:52.090Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      1,
+      2
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-13T17:20:24.232Z"
   }
 ]
