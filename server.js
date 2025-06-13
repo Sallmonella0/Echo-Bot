@@ -25,6 +25,18 @@ function formatUptime(seconds) {
   return `${h}h ${m}m ${s}s`;
 }
 
+const fs = require('fs');
+const path = require('path');
+
+// Retorna o histórico de um servidor
+app.get('/api/guild/:guildId/historico', (req, res) => {
+  const guildId = req.params.guildId;
+  const filePath = path.join(__dirname, 'dados', `${guildId}.json`);
+  if (!fs.existsSync(filePath)) return res.json([]);
+  const historico = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  res.json(historico);
+});
+
 app.listen(PORT, () => {
   console.log(`🌐 Painel rodando em http://localhost:${PORT}`);
 });
