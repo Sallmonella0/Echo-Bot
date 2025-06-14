@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, Partials, Collection, Events } = require('discord.js');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -61,13 +61,32 @@ app.listen(PORT, () => {
 client.on('ready', () => {
   console.log(`🤖 Bot online como ${client.user.tag}`);
 });
+client.on(Events.InteractionCreate, async interaction => {
+  if (!interaction.isChatInputCommand()) return;
+  const command = client.commands.get(interaction.commandName);
+  if (!command) return;
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({ content: 'Erro ao executar o comando!', ephemeral: true });
+  }
+});
 
+// Handler para comandos sem prefixo
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
+  // Roll com "as 2d12"
+  const rollCommand = client.commands.get('roll');
+  if (rollCommand && rollCommand.execute(message, message.content)) return;
+
+  // Dados com "2d12"
+  const dadosCommand = client.commands.get('dados');
+  if (dadosCommand && dadosCommand.execute(message, message.content)) return;
+
   // Se o bot for mencionado
   if (message.mentions.has(client.user)) {
-    // Remove a menção do texto
     const prompt = message.content.replace(`<@${client.user.id}>`, '').trim();
     const iaCommand = client.commands.get('ia');
     if (iaCommand) {
@@ -76,15 +95,7 @@ client.on('messageCreate', async (message) => {
     return;
   }
 
-  // Detecção de padrão XdY
-  const diceRegex = /^(\d+)d(\d+)$/i;
-  const match = message.content.match(diceRegex);
-  if (match) {
-    const rollCommand = client.commands.get('roll');
-    if (rollCommand) rollCommand.execute(message, message.content);
-    return;
-  }
-
+  // Comandos com prefixo !
   const prefix = '!';
   if (!message.content.startsWith(prefix)) return;
 
@@ -95,5 +106,17 @@ client.on('messageCreate', async (message) => {
   if (command) command.execute(message, args);
 });
 
+// Handlers de erro para debug
+client.on('error', error => {
+  console.error('Erro no client:', error);
+});
+client.on('shardError', error => {
+  console.error('Shard error:', error);
+});
+process.on('unhandledRejection', error => {
+  console.error('Unhandled promise rejection:', error);
+});
+
 // Login do bot
+console.log('Iniciando login do bot...');
 client.login(process.env.TOKEN);

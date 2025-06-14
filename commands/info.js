@@ -1,13 +1,14 @@
 module.exports = {
   name: 'ajuda',
-  execute(message) {
-    message.reply(
+  async execute(interaction) {
+    await interaction.reply(
       `📝 **Comandos disponíveis:**\n` +
-      `• **@Echo** Perguntas respondidas por IA\n` +
-      `• **XdY** — Rola X dados de Y lados (ex:3d6)\n` +
-      `• **!ajuda** — Mostra esta mensagem de ajuda\n` +
-      '• **!ping** — Responde com Pong!\n' +
-      '• **!historico** — Mostra o histórico de rolagens do servidor\n' 
+      `• **@Echo** - Pergunta respondida por IA (ex: @Echo quanto é 1+1?)\n` +
+      `• **/xdy quantidade lados** — Rola X dados de Y lados (ex: /xdy 2 20)\n` +
+      `• **/coinflip** — Cara ou coroa\n` +
+      `• **/ajuda** — Mostra esta mensagem de ajuda\n`+
+      `• **/ping** — Responde com "Pong!"\n` +
+      `• **/histórico** — Mostra o histórico de rolagens do usuarios\n`
 
     );
   }

@@ -3,27 +3,27 @@ const path = require('path');
 
 module.exports = {
   name: 'historico',
-  async execute(message) {
-    if (!message.guild) {
-      return message.reply('Este comando só pode ser usado em servidores.');
+  async execute(interaction) {
+    if (!interaction.guild) {
+      return interaction.reply({ content: 'Este comando só pode ser usado em servidores.', ephemeral: true });
     }
-    const guildId = message.guild.id;
+    const guildId = interaction.guild.id;
     const filePath = path.join(__dirname, '..', 'dados', `${guildId}.json`);
     if (!fs.existsSync(filePath)) {
-      return message.reply('Nenhum histórico encontrado para este servidor.');
+      return interaction.reply({ content: 'Nenhum histórico encontrado para este servidor.', ephemeral: true });
     }
     const historico = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const userHistorico = historico.filter(item => item.usuario === message.author.tag);
+    const userHistorico = historico.filter(item => item.usuario === interaction.user.tag);
     if (!userHistorico.length) {
-      return message.reply('Você ainda não fez nenhuma rolagem neste servidor.');
+      return interaction.reply({ content: 'Você ainda não fez nenhuma rolagem neste servidor.', ephemeral: true });
     }
+    
 
-    // Mostra as últimas 5 rolagens do usuário, com emojis
     const ultimas = userHistorico.slice(-5).map(item =>
       `• ${item.comando} → ${item.emojis ? item.emojis.join(' ') : item.resultado.join(', ')}`
     ).join('\n');
 
-    message.reply(
+    await interaction.reply(
       `🎲 **Seu histórico de rolagens:**\n${ultimas}`
     );
   }

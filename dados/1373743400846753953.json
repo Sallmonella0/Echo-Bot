@@ -1434,5 +1434,116 @@
       "🐞🐞🐱"
     ],
     "data": "2025-06-13T18:29:24.856Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d6",
+    "resultado": [
+      6,
+      2
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞",
+      "🚫"
+    ],
+    "data": "2025-06-14T01:35:10.710Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "21d2",
+    "resultado": [
+      1,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-14T01:35:17.490Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d12",
+    "resultado": [
+      7,
+      3,
+      6
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐞🐞",
+      "🐱",
+      "🐞"
+    ],
+    "data": "2025-06-14T01:43:44.626Z"
   }
 ]

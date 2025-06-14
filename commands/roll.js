@@ -48,7 +48,7 @@ module.exports = {
           });
           fs.writeFileSync(filePath, JSON.stringify(historico, null, 2));
         }
-        
+
 
         message.channel.send(resposta);
       } else {
