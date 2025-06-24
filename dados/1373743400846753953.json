@@ -2654,5 +2654,56 @@
       "🚫"
     ],
     "data": "2025-06-24T22:14:32.581Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d12",
+    "resultado": [
+      11,
+      3,
+      10
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "adaptação",
+      "sucesso"
+    ],
+    "emojis": [
+      "🐞🦌🦌🦉",
+      "🦉",
+      "🐞🐞🦉"
+    ],
+    "data": "2025-06-24T22:23:35.522Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d6",
+    "resultado": [
+      2,
+      4
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🚫",
+      "🦉🦌"
+    ],
+    "data": "2025-06-24T22:24:46.589Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "1d12",
+    "resultado": [
+      11
+    ],
+    "resultadoExtenso": [
+      "sucesso"
+    ],
+    "emojis": [
+      "🐞🦌🦌🦉"
+    ],
+    "data": "2025-06-24T22:24:52.629Z"
   }
 ]
