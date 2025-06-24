@@ -61,19 +61,8 @@ app.listen(PORT, () => {
 client.on('ready', () => {
   console.log(`🤖 Bot online como ${client.user.tag}`);
 });
-client.on(Events.InteractionCreate, async interaction => {
-  if (!interaction.isChatInputCommand()) return;
-  const command = client.commands.get(interaction.commandName);
-  if (!command) return;
-  try {
-    await command.execute(interaction);
-  } catch (error) {
-    console.error(error);
-    await interaction.reply({ content: 'Erro ao executar o comando!', ephemeral: true });
-  }
-});
 
-// Handler para comandos sem prefixo
+// Handler para comandos de texto e sem prefixo
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
@@ -81,7 +70,7 @@ client.on('messageCreate', async (message) => {
   const rollCommand = client.commands.get('roll');
   if (rollCommand && rollCommand.execute(message, message.content)) return;
 
-  // Dados com "2d12"
+  // Dados com "!2d12"
   const dadosCommand = client.commands.get('dados');
   if (dadosCommand && dadosCommand.execute(message, message.content)) return;
 
@@ -104,6 +93,19 @@ client.on('messageCreate', async (message) => {
 
   const command = client.commands.get(commandName);
   if (command) command.execute(message, args);
+});
+
+// Handler para slash commands
+client.on(Events.InteractionCreate, async interaction => {
+  if (!interaction.isChatInputCommand()) return;
+  const command = client.commands.get(interaction.commandName);
+  if (!command) return;
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({ content: 'Erro ao executar o comando!', ephemeral: true });
+  }
 });
 
 // Handlers de erro para debug

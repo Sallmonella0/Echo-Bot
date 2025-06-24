@@ -1545,5 +1545,1114 @@
       "🐞"
     ],
     "data": "2025-06-14T01:43:44.626Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d6",
+    "resultado": [
+      4,
+      5
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T19:04:44.966Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      2,
+      3,
+      3
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🚫",
+      "🐱",
+      "🐱"
+    ],
+    "data": "2025-06-17T19:27:25.317Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      6,
+      3,
+      1
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞",
+      "🐱",
+      "🚫"
+    ],
+    "data": "2025-06-17T19:28:48.927Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      1,
+      9
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "sucesso"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞🦌🐱"
+    ],
+    "data": "2025-06-17T19:28:53.326Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      6,
+      5,
+      1
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞",
+      "🐱🦌",
+      "🚫"
+    ],
+    "data": "2025-06-17T19:32:01.138Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d10",
+    "resultado": [
+      10,
+      9,
+      6
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "sucesso",
+      "pressão"
+    ],
+    "emojis": [
+      "🐞🐞🐱",
+      "🐞🦌🐱",
+      "🐞"
+    ],
+    "data": "2025-06-17T19:32:02.635Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      4,
+      4,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🐞"
+    ],
+    "data": "2025-06-17T19:41:08.056Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d10",
+    "resultado": [
+      3,
+      6,
+      8
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱",
+      "🐞",
+      "🐞🦌"
+    ],
+    "data": "2025-06-17T19:41:10.022Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d6",
+    "resultado": [
+      3,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱",
+      "🐞"
+    ],
+    "data": "2025-06-17T19:43:00.888Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      8,
+      10
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "sucesso"
+    ],
+    "emojis": [
+      "🐞🦌",
+      "🐞🐞🐱"
+    ],
+    "data": "2025-06-17T19:43:05.828Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱"
+    ],
+    "data": "2025-06-17T19:58:02.935Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      1,
+      2
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:16:37.154Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱"
+    ],
+    "data": "2025-06-17T20:19:45.206Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      2,
+      5
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🚫",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:19:51.878Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱"
+    ],
+    "data": "2025-06-17T20:24:52.075Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d10",
+    "resultado": [
+      9,
+      6,
+      9
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "pressão",
+      "sucesso"
+    ],
+    "emojis": [
+      "🐞🦌🐱",
+      "🐞",
+      "🐞🦌🐱"
+    ],
+    "data": "2025-06-17T20:24:54.564Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      5,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:25:37.837Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      4
+    ],
+    "resultadoExtenso": [
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:26:30.186Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      2,
+      1,
+      6
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio",
+      "pressão"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:28:32.837Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      9,
+      1
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞🦌🐱",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:29:09.116Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      6,
+      5,
+      3
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐞",
+      "🐱🦌",
+      "🐱"
+    ],
+    "data": "2025-06-17T20:30:46.152Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      2
+    ],
+    "resultadoExtenso": [
+      "vazio"
+    ],
+    "emojis": [
+      "🚫"
+    ],
+    "data": "2025-06-17T20:31:36.061Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      1,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:32:01.910Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      2,
+      1,
+      6
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio",
+      "pressão"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:35:44.432Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      2,
+      9
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "sucesso"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞🦌🐱"
+    ],
+    "data": "2025-06-17T20:35:49.260Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      3,
+      1,
+      1
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:36:37.875Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      3,
+      6,
+      1
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱",
+      "🐞",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:39:10.465Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      2,
+      7
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "pressão"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞🐞"
+    ],
+    "data": "2025-06-17T20:39:19.710Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      1,
+      6,
+      5
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "pressão",
+      "adaptação"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:40:02.420Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "1d6",
+    "resultado": [
+      6
+    ],
+    "resultadoExtenso": [
+      "pressão"
+    ],
+    "emojis": [
+      "🐞"
+    ],
+    "data": "2025-06-17T20:40:37.916Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱"
+    ],
+    "data": "2025-06-17T20:41:05.424Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      2,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:41:09.764Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio"
+    ],
+    "emojis": [
+      "🚫"
+    ],
+    "data": "2025-06-17T20:42:37.272Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d10",
+    "resultado": [
+      1,
+      3,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🐱",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:42:38.967Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d10",
+    "resultado": [
+      4,
+      2,
+      5
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:42:51.883Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d12",
+    "resultado": [
+      6,
+      7,
+      1
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "pressão",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞",
+      "🐞🐞",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:42:55.801Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      3,
+      3,
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱",
+      "🐱",
+      "🐱"
+    ],
+    "data": "2025-06-17T20:43:15.753Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      5,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:45:04.608Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d10",
+    "resultado": [
+      8,
+      9,
+      3
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "sucesso",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐞🦌",
+      "🐞🦌🐱",
+      "🐱"
+    ],
+    "data": "2025-06-17T20:45:09.311Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      4,
+      6,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐞",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:45:34.608Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d6",
+    "resultado": [
+      2,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:47:48.503Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d10",
+    "resultado": [
+      5,
+      5,
+      4
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:47:51.601Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d10",
+    "resultado": [
+      9,
+      10,
+      4
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "sucesso",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐞🦌🐱",
+      "🐞🐞🐱",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:48:02.282Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      2,
+      6,
+      6
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "pressão",
+      "pressão"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:48:35.634Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d6",
+    "resultado": [
+      3,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱",
+      "🐞"
+    ],
+    "data": "2025-06-17T20:49:51.345Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      2,
+      7
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "pressão"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞🐞"
+    ],
+    "data": "2025-06-17T20:49:59.094Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      3,
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱",
+      "🐱"
+    ],
+    "data": "2025-06-17T20:50:41.976Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d6",
+    "resultado": [
+      4,
+      2
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:52:06.984Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      5
+    ],
+    "resultadoExtenso": [
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:52:52.666Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      7,
+      7
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "pressão"
+    ],
+    "emojis": [
+      "🐞🐞",
+      "🐞🐞"
+    ],
+    "data": "2025-06-17T20:52:59.169Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      3,
+      5,
+      5
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱",
+      "🐱🦌",
+      "🐱🦌"
+    ],
+    "data": "2025-06-17T20:53:56.738Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      1,
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫",
+      "🐱"
+    ],
+    "data": "2025-06-17T20:55:11.331Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      10,
+      10
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "sucesso"
+    ],
+    "emojis": [
+      "🐞🐞🐱",
+      "🐞🐞🐱"
+    ],
+    "data": "2025-06-17T20:55:15.235Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d6",
+    "resultado": [
+      5,
+      2,
+      1
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-06-17T20:56:03.678Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "1d6",
+    "resultado": [
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio"
+    ],
+    "emojis": [
+      "🚫"
+    ],
+    "data": "2025-06-17T20:56:32.446Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d10",
+    "resultado": [
+      1,
+      9
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "sucesso"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞🦌🐱"
+    ],
+    "data": "2025-06-17T20:56:34.442Z"
+  },
+  {
+    "usuario": "sheleper",
+    "comando": "2d6",
+    "resultado": [
+      4,
+      3
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱"
+    ],
+    "data": "2025-06-17T20:57:25.719Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d6",
+    "resultado": [
+      4,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐞"
+    ],
+    "data": "2025-06-19T02:51:54.960Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "4d12",
+    "resultado": [
+      4,
+      4,
+      12,
+      9
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "adaptação",
+      "sucesso",
+      "sucesso"
+    ],
+    "emojis": [
+      "🐱🦌",
+      "🐱🦌",
+      "🐱🐱",
+      "🐞🦌🐱"
+    ],
+    "data": "2025-06-23T03:52:31.317Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "4d10",
+    "resultado": [
+      2,
+      10,
+      7,
+      1
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "sucesso",
+      "pressão",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🐞🐞🐱",
+      "🐞🐞",
+      "🚫"
+    ],
+    "data": "2025-06-23T03:52:35.075Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "3d12",
+    "resultado": [
+      8,
+      6,
+      2
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "pressão",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞🦌",
+      "🐞",
+      "🚫"
+    ],
+    "data": "2025-06-24T22:14:32.581Z"
   }
 ]
