@@ -121,5 +121,408 @@
       "🐱🦌"
     ],
     "data": "2025-06-13T17:14:17.658Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d12",
+    "resultado": [
+      10,
+      1
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞🐞🦉",
+      "🚫"
+    ],
+    "data": "2025-09-24T18:00:15.218Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d6",
+    "resultado": [
+      3,
+      2
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "vazio"
+    ],
+    "emojis": [
+      "🦉",
+      "🚫"
+    ],
+    "data": "2025-09-24T18:00:26.108Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "6d10",
+    "resultado": [
+      6,
+      2,
+      1,
+      9,
+      1,
+      4
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "vazio",
+      "vazio",
+      "sucesso",
+      "vazio",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐞",
+      "🚫",
+      "🚫",
+      "🐞🦌🦉",
+      "🚫",
+      "🦉🦌"
+    ],
+    "data": "2025-09-24T18:00:35.515Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "5d12",
+    "resultado": [
+      4,
+      8,
+      5,
+      3,
+      11
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão",
+      "adaptação",
+      "adaptação",
+      "sucesso"
+    ],
+    "emojis": [
+      "🦉🦌",
+      "🐞🦌",
+      "🦉🦌",
+      "🦉",
+      "🐞🦌🦌🦉"
+    ],
+    "data": "2025-09-24T19:49:40.699Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d6",
+    "resultado": [
+      3,
+      6
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🦉",
+      "🐞"
+    ],
+    "data": "2025-09-24T19:49:44.876Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d10",
+    "resultado": [
+      6,
+      6
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "pressão"
+    ],
+    "emojis": [
+      "🐞",
+      "🐞"
+    ],
+    "data": "2025-09-24T19:49:49.926Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "d12",
+    "resultado": [
+      2
+    ],
+    "resultadoExtenso": [
+      "vazio"
+    ],
+    "emojis": [
+      "🚫"
+    ],
+    "data": "2025-10-08T01:43:55.920Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "5d12",
+    "resultado": [
+      1,
+      4,
+      7,
+      1,
+      2
+    ],
+    "resultadoExtenso": [
+      "vazio",
+      "adaptação",
+      "pressão",
+      "vazio",
+      "vazio"
+    ],
+    "emojis": [
+      "🚫",
+      "🦉🦌",
+      "🐞🐞",
+      "🚫",
+      "🚫"
+    ],
+    "data": "2025-10-08T01:44:00.466Z"
+  },
+  {
+    "usuario": "_igrk",
+    "comando": "50d12",
+    "resultado": [
+      12,
+      12,
+      7,
+      6,
+      10,
+      6,
+      1,
+      8,
+      3,
+      5,
+      2,
+      2,
+      8,
+      2,
+      8,
+      8,
+      8,
+      3,
+      3,
+      5,
+      10,
+      6,
+      2,
+      8,
+      8,
+      12,
+      5,
+      10,
+      9,
+      4,
+      4,
+      12,
+      10,
+      3,
+      12,
+      12,
+      9,
+      5,
+      4,
+      6,
+      11,
+      8,
+      1,
+      10,
+      1,
+      4,
+      11,
+      5,
+      6,
+      9
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "sucesso",
+      "pressão",
+      "pressão",
+      "sucesso",
+      "pressão",
+      "vazio",
+      "pressão",
+      "adaptação",
+      "adaptação",
+      "vazio",
+      "vazio",
+      "pressão",
+      "vazio",
+      "pressão",
+      "pressão",
+      "pressão",
+      "adaptação",
+      "adaptação",
+      "adaptação",
+      "sucesso",
+      "pressão",
+      "vazio",
+      "pressão",
+      "pressão",
+      "sucesso",
+      "adaptação",
+      "sucesso",
+      "sucesso",
+      "adaptação",
+      "adaptação",
+      "sucesso",
+      "sucesso",
+      "adaptação",
+      "sucesso",
+      "sucesso",
+      "sucesso",
+      "adaptação",
+      "adaptação",
+      "pressão",
+      "sucesso",
+      "pressão",
+      "vazio",
+      "sucesso",
+      "vazio",
+      "adaptação",
+      "sucesso",
+      "adaptação",
+      "pressão",
+      "sucesso"
+    ],
+    "emojis": [
+      "🦉🦉",
+      "🦉🦉",
+      "🐞🐞",
+      "🐞",
+      "🐞🐞🦉",
+      "🐞",
+      "🚫",
+      "🐞🦌",
+      "🦉",
+      "🦉🦌",
+      "🚫",
+      "🚫",
+      "🐞🦌",
+      "🚫",
+      "🐞🦌",
+      "🐞🦌",
+      "🐞🦌",
+      "🦉",
+      "🦉",
+      "🦉🦌",
+      "🐞🐞🦉",
+      "🐞",
+      "🚫",
+      "🐞🦌",
+      "🐞🦌",
+      "🦉🦉",
+      "🦉🦌",
+      "🐞🐞🦉",
+      "🐞🦌🦉",
+      "🦉🦌",
+      "🦉🦌",
+      "🦉🦉",
+      "🐞🐞🦉",
+      "🦉",
+      "🦉🦉",
+      "🦉🦉",
+      "🐞🦌🦉",
+      "🦉🦌",
+      "🦉🦌",
+      "🐞",
+      "🐞🦌🦌🦉",
+      "🐞🦌",
+      "🚫",
+      "🐞🐞🦉",
+      "🚫",
+      "🦉🦌",
+      "🐞🦌🦌🦉",
+      "🦉🦌",
+      "🐞",
+      "🐞🦌🦉"
+    ],
+    "data": "2025-10-08T01:44:30.670Z"
+  },
+  {
+    "usuario": "_igrk",
+    "comando": "d12",
+    "resultado": [
+      8
+    ],
+    "resultadoExtenso": [
+      "pressão"
+    ],
+    "emojis": [
+      "🐞🦌"
+    ],
+    "data": "2025-10-08T01:45:01.196Z"
+  },
+  {
+    "usuario": "_igrk",
+    "comando": "2d12",
+    "resultado": [
+      3,
+      9
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "sucesso"
+    ],
+    "emojis": [
+      "🦉",
+      "🐞🦌🦉"
+    ],
+    "data": "2025-10-08T01:49:10.184Z"
+  },
+  {
+    "usuario": "_igrk",
+    "comando": "2d10",
+    "resultado": [
+      4,
+      7
+    ],
+    "resultadoExtenso": [
+      "adaptação",
+      "pressão"
+    ],
+    "emojis": [
+      "🦉🦌",
+      "🐞🐞"
+    ],
+    "data": "2025-10-08T01:49:35.152Z"
+  },
+  {
+    "usuario": "_igrk",
+    "comando": "1d12",
+    "resultado": [
+      2
+    ],
+    "resultadoExtenso": [
+      "vazio"
+    ],
+    "emojis": [
+      "🚫"
+    ],
+    "data": "2025-10-08T01:50:16.497Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d12",
+    "resultado": [
+      7,
+      1
+    ],
+    "resultadoExtenso": [
+      "pressão",
+      "vazio"
+    ],
+    "emojis": [
+      "🐞🐞",
+      "🚫"
+    ],
+    "data": "2025-10-08T17:16:42.689Z"
   }
 ]

@@ -2705,5 +2705,36 @@
       "🐞🦌🦌🦉"
     ],
     "data": "2025-06-24T22:24:52.629Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "1d10",
+    "resultado": [
+      2
+    ],
+    "resultadoExtenso": [
+      "vazio"
+    ],
+    "emojis": [
+      "🚫"
+    ],
+    "data": "2025-06-24T22:25:49.254Z"
+  },
+  {
+    "usuario": "jaodenoot",
+    "comando": "2d10",
+    "resultado": [
+      10,
+      4
+    ],
+    "resultadoExtenso": [
+      "sucesso",
+      "adaptação"
+    ],
+    "emojis": [
+      "🐞🐞🦉",
+      "🦉🦌"
+    ],
+    "data": "2025-06-24T22:25:52.244Z"
   }
 ]
