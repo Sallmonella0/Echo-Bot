@@ -62,7 +62,6 @@ app.get('/api/guilds', (req, res) => {
   res.json(guilds);
 });
 
-
 // Iniciar o painel web
 app.listen(PORT, () => {
   console.log(`🌐 Painel rodando em http://localhost:${PORT}`);
@@ -81,9 +80,17 @@ client.on('ready', () => {
 client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
 
+  // Dados com "2d12" (sem prefixo)
+  const regex = /^(\d+)d(\d+)$/i;
+  const match = message.content.match(regex);
+  if (match) {
+    const rollCommand = client.commands.get('roll');
+    if (rollCommand && rollCommand.execute(message, message.content)) return;
+  }
+
   // Roll com "as 2d12"
-  const rollCommand = client.commands.get('roll');
-  if (rollCommand && rollCommand.execute(message, message.content)) return;
+  const rollAsCommand = client.commands.get('roll');
+  if (rollAsCommand && rollAsCommand.execute(message, message.content)) return;
 
   // Dados com "!2d12"
   const dadosCommand = client.commands.get('dados');
