@@ -52,6 +52,17 @@ app.get('/api/guild/:guildId/historico', (req, res) => {
   res.json(historico);
 });
 
+// Endpoint para listar servidores
+app.get('/api/guilds', (req, res) => {
+  const guilds = client.guilds.cache.map(guild => ({
+    id: guild.id,
+    name: guild.name,
+    memberCount: guild.memberCount
+  }));
+  res.json(guilds);
+});
+
+
 // Iniciar o painel web
 app.listen(PORT, () => {
   console.log(`🌐 Painel rodando em http://localhost:${PORT}`);
@@ -60,6 +71,10 @@ app.listen(PORT, () => {
 // Eventos do bot
 client.on('ready', () => {
   console.log(`🤖 Bot online como ${client.user.tag}`);
+  console.log('Servidores onde o bot está:');
+  client.guilds.cache.forEach(guild => {
+    console.log(`- ${guild.name} (ID: ${guild.id})`);
+  });
 });
 
 // Handler para comandos de texto e sem prefixo

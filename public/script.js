@@ -13,6 +13,22 @@ async function carregarEstatisticas() {
   }
 }
 
+async function carregarServidores() {
+  try {
+    const resposta = await fetch('/api/guilds');
+    const guilds = await resposta.json();
+    const lista = document.getElementById('lista-servidores');
+    lista.innerHTML = '';
+    guilds.forEach(guild => {
+      const li = document.createElement('li');
+      li.textContent = `${guild.name} (ID: ${guild.id}) - ${guild.memberCount} membros`;
+      lista.appendChild(li);
+    });
+  } catch (erro) {
+    console.error('Erro ao carregar servidores:', erro);
+  }
+}
+
 async function carregarHistorico() {
   const guildId = document.getElementById('guildId').value.trim();
   const historicoEl = document.getElementById('historico');
@@ -44,3 +60,4 @@ async function carregarHistorico() {
 
 carregarEstatisticas();
 setInterval(carregarEstatisticas, 5000);
+carregarServidores();
